@@ -5,6 +5,7 @@ import java.util.Random;
 public class MonteCarlo {
 
     public static void main(String[] args) {
+        // tutaj dodaje komentarz i chce zrobić drugi commit
         Random random = new Random();
         int licznik = 0;
         int iteracje = 100000000;
