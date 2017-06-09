@@ -6,8 +6,7 @@ import java.util.Date;
 
 public class Person {
 
-    private int ageOf;
-    private int personAge;
+    private int personAgeOf;
     private Date birthDate = new Date();
     private String country;
     private char letter;
@@ -31,22 +30,22 @@ public class Person {
         this.isMale = isMale;
     }
 
-    public Person(boolean isMale, int age, double money) {
+    public Person(boolean isMale, int personAgeOf, double money) {
         this.isMale = isMale;
-        this.age = age;
+        this.personAgeOf = personAgeOf;
         this.money = money;
     }
 
     public boolean isAdult(){
-        return age >= 18;
+        return personAgeOf >= 18;
     }
 
     public void birthday(){
-        this.age++;
+        this.personAgeOf++;
     }
 
-    public int getAge(){
-        return age;
+    public int getPersonAgeOf(){
+        return personAgeOf;
     }
 
     public static void main(String[] args) {
@@ -54,10 +53,10 @@ public class Person {
         int age = 30;
 
         Person person = new Person(true);
-        person.age = 21;
-        person.age = person.age + 1;
-        person.age++;
-        System.out.println(person.age >= 18);
+        person.personAgeOf = 21;
+        person.personAgeOf = person.personAgeOf + 1;
+        person.personAgeOf++;
+        System.out.println(person.personAgeOf >= 18);
         person.letter = 'a';
         person.country = "Polska";
         person.money = 105.20;
