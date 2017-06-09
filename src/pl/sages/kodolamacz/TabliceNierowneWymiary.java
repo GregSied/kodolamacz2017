@@ -10,9 +10,11 @@ public class TabliceNierowneWymiary {
         int[][] tab = new int[5][];
         int[][] sudoku = {{1, 0, 0, 2, 5, 8},
                         {2, 4, 8}};
+        int[][][] trzy = {{{1}}, {{1}, {2,3}}, {{1,2}}};
         tab[0] = new int[12];
         tab[1] = new int[4];
         tab[2] = new int[1];
+        tab[3] = new int[0]; // pusta tablica, nic nie wsadzimy
 
         System.out.println(1/6.0 + 1/3.0 + 1/2.0 == 1.0);
         System.out.println(1/10.0 + 1/10.0 + 1/10.0 == 0.3);

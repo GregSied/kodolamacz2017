@@ -15,9 +15,13 @@ public class TabliceDwuwymiarowe {
         // metoda dostepu do elementów
         dwu[2][3] = 15;
 
+        // dlugość tablicy drugiej (1 bo liczymy od 0 indeksy)
+        int dlugoscTablicyDrugiej = dwu[1].length;
+
+
         for(int w = 0; w < dwu.length; w++){
             int[] wiersz = dwu[w];
-            for (int k = 0; k < wiersz.length; k++) {
+            for (int k = 0; k < dwu[w].length; k++) {
                 wiersz[k] = random.nextInt(100);
             }
         }

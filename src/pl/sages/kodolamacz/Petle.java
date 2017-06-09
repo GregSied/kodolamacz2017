@@ -1,8 +1,5 @@
 package pl.sages.kodolamacz;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Petle {
 
     public static void main(String[] args) {
@@ -52,7 +49,7 @@ public class Petle {
 
         while(!olaf.isAdult()){
             olaf.birthday();
-            System.out.println("Sto lat! Masz już "+olaf.getAge() + " lat!");
+            System.out.println("Sto lat! Masz już "+olaf.getPersonAgeOf() + " lat!");
         }
 
         // for i while sa równoważne
@@ -74,10 +71,24 @@ public class Petle {
             ala.birthday();
         }
 
+        // do while gwarantuje, że kod w pętli ZAWSZE wykona się przynajmniej RAZ
+        do{
+
+        }while (!ala.isAdult());
+
         for(Person marian = new Person(true);
             !marian.isAdult();
             marian.birthday()){
 
+        }
+
+        for (int k = 0; k < 15; k++) {
+            if(k == 8){
+                break;
+            }else if(k % 2 == 1){
+                continue;
+            }
+            System.out.println(k);
         }
     }
 
