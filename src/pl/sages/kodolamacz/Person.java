@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class Person {
 
+    private int ageOf;
     private int personAge;
     private Date birthDate = new Date();
     private String country;
