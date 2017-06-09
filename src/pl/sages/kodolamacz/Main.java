@@ -6,6 +6,7 @@ import pl.sages.vehicle.Car;
 public class Main {
 
     public static void main(String[] args) {
+        // kolejny komentarz
         System.out.println("Hello World!");
         Car audi = new Car();
         Bike myBike = new Bike();
