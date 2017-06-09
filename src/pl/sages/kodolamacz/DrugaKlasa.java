@@ -12,6 +12,6 @@ class TrzeciaKlasa {
 
 }
 
-class PiątaKlasa{
+class CzwartaKlasa{
 
 }
