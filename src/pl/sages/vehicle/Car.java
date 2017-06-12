@@ -1,5 +1,9 @@
 package pl.sages.vehicle;
 
+import pl.sages.kodolamacz.Person;
+
+import java.util.Date;
+
 public class Car {
 
     /**
@@ -15,6 +19,13 @@ public class Car {
     public static void main(String[] args) {
         Bike bike = new Bike();
         //bike.gears;
+        Person person = new Person(false);
+        person.setPersonAgeOf(12);
+        if(person.isAdult()){
+            System.out.println("Pełnoletni");
+        }
+        person.setPersonAgeOf(55);
+        person.birthday();
     }
 
 }

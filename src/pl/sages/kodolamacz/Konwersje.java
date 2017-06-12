@@ -1,5 +1,7 @@
 package pl.sages.kodolamacz;
 
+import java.util.Scanner;
+
 public class Konwersje {
 
     public static void main(String[] args) {
@@ -26,6 +28,9 @@ public class Konwersje {
 
         // a nie napis (String)
         //int znak = "a";
+
+        Scanner scanner = new Scanner(System.in);
+        Integer integer = Integer.valueOf(scanner.nextLine());
 
         int napis1 = Integer.valueOf("123");
         int napis2 = Integer.valueOf("abc");

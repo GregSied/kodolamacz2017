@@ -7,7 +7,7 @@ import java.util.Date;
 public class Person {
 
     private int personAgeOf;
-    private Date birthDate = new Date();
+    public Date birthDate = new Date();
     private String country;
     private char letter;
     private double money;
@@ -44,8 +44,14 @@ public class Person {
         this.personAgeOf++;
     }
 
-    public int getPersonAgeOf(){
+    public int getPersonAgeOf() {
         return personAgeOf;
+    }
+
+    public void setPersonAgeOf(int personAgeOf) {
+        if(personAgeOf > 0){
+            this.personAgeOf = personAgeOf;
+        }
     }
 
     public static void main(String[] args) {
