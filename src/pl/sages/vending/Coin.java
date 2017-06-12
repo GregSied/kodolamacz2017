@@ -21,4 +21,9 @@ public enum Coin {
     public int getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Coin=" + (value/100 + "." + value%100);
+    }
 }

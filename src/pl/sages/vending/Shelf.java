@@ -24,4 +24,10 @@ public class Shelf {
     public int getItemPrice() {
         return product.getPrice();
     }
+
+    public String getItemName() {
+        return product.getName();
+    }
+
+
 }
