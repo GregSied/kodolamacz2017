@@ -1,5 +1,7 @@
 package pl.sages.kodolamacz;
 
+import pl.sages.vending.Coin;
+
 public class Zad5 {
 
     public static void main(String[] args) {

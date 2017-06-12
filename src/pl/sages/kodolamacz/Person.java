@@ -13,6 +13,10 @@ public class Person {
     private double money;
     private byte small;
     private final boolean isMale;
+
+    private Address homeAddress;
+    private Address companyAddress;
+
     enum Gender {
         MALE, FEMALE, UNKNOWN;
     }
