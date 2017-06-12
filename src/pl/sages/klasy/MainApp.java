@@ -38,8 +38,8 @@ public class MainApp {
         order.addArticle(maka, 3);
         System.out.println("Total price fast = "+order.getTotalPrice());
 
-        Pet zwierze = new Pet("Zwierze");
-        zwierze.voice();
+        //Pet zwierze = new Pet("Zwierze");
+        //zwierze.voice();
         Dog reks = new Dog("Reks");
         reks.voice();
     }
