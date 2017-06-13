@@ -9,6 +9,12 @@ public class Book extends Article {
         super();
     }
 
+    // konstruktor kopiujący
+    public Book(Book other) {
+        this.author = other.author;
+        this.year = other.year;
+    }
+
     public Book(String name, String description, int price, String author, int year) {
         // wywołanie konstruktora klasy Article
         super(name, description, price);
@@ -22,7 +28,9 @@ public class Book extends Article {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(final int year) {
+        // nie mogę modyfikować roku
+        //year++;
         printChange("year");
         this.year = year;
     }

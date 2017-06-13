@@ -1,5 +1,6 @@
 package pl.sages.vending;
 
+// prosta klasa produktu, który ma swoją nazwę i cenę (w groszach)
 public class Product {
 
     private String name;
@@ -10,6 +11,7 @@ public class Product {
         this.price = price;
     }
 
+    // gettery - metody dostępowe dla pól
     public String getName() {
         return name;
     }
@@ -17,6 +19,9 @@ public class Product {
     public int getPrice() {
         return price;
     }
+
+    // setterów nie ustawiamy, bo zakładamy że produkty nie zmieniają
+    // swojej nazwy ani ceny
 
     @Override
     public String toString() {

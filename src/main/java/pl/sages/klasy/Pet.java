@@ -10,7 +10,8 @@ public abstract class Pet {
         this.name = name;
     }
 
-    public String getName() {
+    // jeśli metoda jest finalna to żadna klasa nie może jej przysłonić
+    public final String getName() {
         return name;
     }
 

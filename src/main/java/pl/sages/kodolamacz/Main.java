@@ -2,10 +2,16 @@ package pl.sages.kodolamacz;
 
 import pl.sages.vehicle.Bike;
 import pl.sages.vehicle.Car;
+import static pl.sages.kodolamacz.Employee.MINMUM_WAGE;
 
 public class Main {
 
     public static void main(String[] args) {
+        // bez import statycznego:
+        int minmumWage = Employee.MINMUM_WAGE;
+        // z importem:
+        int minmumWageStatic = MINMUM_WAGE;
+
         // kolejny komentarz
         System.out.println("Hello World!");
         Car audi = new Car();

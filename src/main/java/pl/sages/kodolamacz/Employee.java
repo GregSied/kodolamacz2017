@@ -79,10 +79,13 @@ public class Employee {
     // a ta nie zwraca nic
 
     public static void main(String[] args) {
+
+
+
         System.out.println();
         int iluPracownikow = 0;
         String zmienna = "lokalna";
-        String name = "Bartek";
+        final String name = "Bartek";
         // pusty, nieistniejacy obiekt
         // wywolanie name na nim da błąd
         // nie został tutaj stworzony żaden pracownik
@@ -90,6 +93,10 @@ public class Employee {
         Employee mietek = new Employee("Mieczysław", "HR", 18, EmployeeType.HR);
         System.out.println(mietek);
         Employee ania = new Employee("Ania");
+
+        MojString poleInstancjiKlasy = ania.name;
+        int poleKlasy = Employee.MINMUM_WAGE;
+
 
         int count = Employee.count;
 

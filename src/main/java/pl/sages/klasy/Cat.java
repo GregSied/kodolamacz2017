@@ -1,6 +1,9 @@
 package pl.sages.klasy;
 
-public class Cat extends Pet {
+// jeśli klasa nie jest publiczna to jej składowe również nie będą widoczne
+// (nawet jeśli same będą publiczne)
+// żeby zobaczyć składową klasy, trzeba najpierw widzieć klasę
+class Cat extends Pet {
 
     public Cat(String name) {
         super(name);

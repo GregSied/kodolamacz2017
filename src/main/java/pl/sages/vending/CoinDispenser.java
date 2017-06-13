@@ -1,8 +1,6 @@
 package pl.sages.vending;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CoinDispenser {
 
@@ -10,11 +8,18 @@ public class CoinDispenser {
     private List<Coin> insertedCoin = new ArrayList<>();
     private List<Coin> ownCoin = new ArrayList<>();
 
+    // konstruktor, który przyjmuję liste monet jakie maszynka
+    // ma do wydawania reszty
     public CoinDispenser(List<Coin> ownCoin) {
         this.ownCoin = ownCoin;
     }
 
+    // metoda pozwalająca wrzucić monety do maszynki
+    // te monety powinny być przechowywane osobno, aby w razie
+    // anulowania zakupu można było zwrócić użytkownikowi te same monety
+    // ktore wrzucił do nas
     public void insert(Coin coin) {
+        // dodajemy wrzucną monetę do listy
         insertedCoin.add(coin);
         insertedCoinSum += coin.getValue();
     }
@@ -28,8 +33,11 @@ public class CoinDispenser {
     // zbieram monety i na koniec iteruję się po wszystkich
     // aby zsumować łączny wynik
     private int getTotal1(){
+        // inicjujemy początkową wartość sumy wrzuconych monet na 0
         int sum = 0;
+        // w pętli przechodzimy po wszystkich wrzuconych monetach
         for (Coin coin : insertedCoin) {
+            // dodajemy ich wartości
             sum += coin.getValue();
             // += to to samo co
             // sum = sum + coin.getValue();
@@ -47,17 +55,22 @@ public class CoinDispenser {
         return insertedCoinSum;
     }
 
-    public boolean canReturnChange(int change){
+    // metoda sprawdza czy nasza maszynka jest w stanie wydać
+    // resztę z posiadanych monet (zarówno własnych jak i wrzuconych
+    // przez użytkownika)
+    public boolean canReturnChange(final int change){
+        // tworzymy nową listę, która będzie przechowywać WSZYSTKIE monety
         List<Coin> allCoins = new ArrayList<>();
         allCoins.addAll(this.insertedCoin);
         allCoins.addAll(this.ownCoin);
         Collections.sort(allCoins);
+        int remainingChange = change;
         for (Coin coin : allCoins) {
-            if(coin.getValue() <= change){
+            if(coin.getValue() <= remainingChange){
                 // a -= b to to samo co a = a-b;
                 // a += b to to samo co a = a+b;
-                change -= coin.getValue();
-                if(change==0){
+                remainingChange -= coin.getValue();
+                if(remainingChange==0){
                     return true;
                 }
             }
@@ -65,6 +78,9 @@ public class CoinDispenser {
         return false;
     }
 
+    // algorytm bardzo podobny do tego z poprzedniej metody
+    // tylko dodatkowo na osobną listę odkładamy monety, które
+    // należy zwrócić użytkownikowi w postaci listy
     public List<Coin> returnChange(int change){
         List<Coin> allCoins = new ArrayList<>();
         allCoins.addAll(this.insertedCoin);
@@ -97,6 +113,8 @@ public class CoinDispenser {
         return changeCoins;
     }
 
+    // metoda zwracająca wszystkie wrzucone przez użytkownika
+    // monety - przydatne w przypadku anulowania zakupu
     public List<Coin> returnCoins() {
         List<Coin> coinsToReturn = this.insertedCoin;
         insertedCoin = new ArrayList<>();

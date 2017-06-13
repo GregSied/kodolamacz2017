@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class ProductFactory {
 
+    // statyczne pole z nazwami produktów
     static final String[] NAMES = {"Cola", "Pepsi", "Batonik", "Paluszki","Soczek"};
 
     public static Product[] getProducts(){

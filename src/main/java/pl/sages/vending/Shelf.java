@@ -1,5 +1,7 @@
 package pl.sages.vending;
 
+// klasa półki, która przechowuje informację o produkcie jaki na niej jest
+// oraz to ile tych produktów na półce jeszcze zostało
 public class Shelf {
 
     private Product product;
@@ -10,6 +12,7 @@ public class Shelf {
         this.itemCount = itemCount;
     }
 
+    // sprawdzamy czy zostały produkty na półce
     public boolean isEmpty() {
         return itemCount == 0;
         // prostsza wersja tego co poniżej:
