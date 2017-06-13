@@ -59,7 +59,9 @@ public class VendingMachine {
         coinDispenser.insert(coin);
         Shelf shelf = shelves[lastPushedButton];
         if(shelf.getItemPrice() <= coinDispenser.getTotal()){
-            if(coinDispenser.canReturnChange(coinDispenser.getTotal() - shelf.getItemPrice())){
+            int change = coinDispenser.getTotal() - shelf.getItemPrice();
+            if(coinDispenser.canReturnChange(change)){
+                System.out.println("Oddajemy resztę "+coinDispenser.returnChange(change));
                 System.out.println("Wydano produkt: "+shelf.removeOneItem());
             }else{
                 System.out.println("Nie można wydać reszty");
@@ -89,7 +91,7 @@ public class VendingMachine {
         VendingMachine machine = new VendingMachine(ProductFactory.getRandomProducts());
         machine.pushButton(4);
         System.out.println(machine.getDisplay());
-        System.out.println("Wrzucam 50 groszy");
+        System.out.println("Wrzucam 200 groszy");
         machine.insertCoin(Coin.TWO_ZLOTY);
         System.out.println(machine.getDisplay());
         machine.insertCoin(Coin.TWO_ZLOTY);

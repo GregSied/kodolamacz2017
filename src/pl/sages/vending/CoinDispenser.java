@@ -22,7 +22,7 @@ public class CoinDispenser {
     // publiczna metoda dostępna dla wszystkich
     // ona wywołuje jedną z dwóch równoważnych implementacji
     public int getTotal(){
-        return getTotal2();
+        return getTotal1();
     }
 
     // zbieram monety i na koniec iteruję się po wszystkich
@@ -39,6 +39,10 @@ public class CoinDispenser {
 
     // podczas wrzucania monet już dodaję ich wartości
     // więc na końcu wystarczy tylko zwrócić wartość
+    // JEDNAK NIE NAJLEPSZE PODEJŚCIE
+    // bo zbyt wiele razy manipulujmey listą wrzucanych monet
+    // przez to w zbyt wielu miejscach trzeba pamiętać o odpowiednim
+    // ustawieniu tej zmiennej
     private int getTotal2(){
         return insertedCoinSum;
     }
@@ -61,11 +65,43 @@ public class CoinDispenser {
         return false;
     }
 
+    public List<Coin> returnChange(int change){
+        List<Coin> allCoins = new ArrayList<>();
+        allCoins.addAll(this.insertedCoin);
+        allCoins.addAll(this.ownCoin);
+        Collections.sort(allCoins);
+
+        // dodatkowa lista gdzie odkładamy monety do zwrócenia
+        List<Coin> changeCoins = new ArrayList<>();
+        List<Coin> newOwnCoins = new ArrayList<>();
+
+        for (Coin coin : allCoins) {
+            // jeśli moneta powinna być wydana
+            if(coin.getValue() <= change){
+                change -= coin.getValue();
+                // to dodajemy ją do listy
+                changeCoins.add(coin);
+                // jeśli już nic nie zostało do wydania
+                if(change==0){
+                    // to przerywamy pętle
+                    break;
+                }
+            }else{
+                // jeśli jej nie oddajmy
+                // to zostawiamy w maszynie
+                newOwnCoins.add(coin);
+            }
+        }
+        this.insertedCoin.clear();
+        this.ownCoin = newOwnCoins;
+        return changeCoins;
+    }
+
     public List<Coin> returnCoins() {
         List<Coin> coinsToReturn = this.insertedCoin;
         insertedCoin = new ArrayList<>();
         // oddajemy monety, więc suma wrzucony monet musi być 0
-        insertedCoinSum = 0;
+        //insertedCoinSum = 0;
         return coinsToReturn;
     }
 }
