@@ -1,6 +1,6 @@
 package pl.sages.klasy;
 
-public class Dog extends Pet {
+public class Dog extends Pet implements Glaskalny, Aportujacy{
 
     public Dog(String name) {
         super(name);
@@ -15,6 +15,7 @@ public class Dog extends Pet {
         System.out.println("Hau hau");
     }
 
+    @Override
     public void aport(){
 
     }
@@ -23,5 +24,10 @@ public class Dog extends Pet {
         Dog reksio = new Dog("Reksio");
         System.out.println(reksio.getName());
         reksio.voice();
+    }
+
+    @Override
+    public void poglaszcz() {
+        System.out.println("Głaszczemy " + getName());
     }
 }

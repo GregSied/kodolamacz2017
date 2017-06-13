@@ -38,6 +38,7 @@ public class MainApp {
         order.addArticle(maka, 3);
         System.out.println("Total price fast = "+order.getTotalPrice());
 
+        // klasa abstrakcyjna nie może byc powołana do życia
         //Pet zwierze = new Pet("Zwierze");
         //zwierze.voice();
         Dog reks = new Dog("Reks");
