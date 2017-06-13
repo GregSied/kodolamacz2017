@@ -1,5 +1,7 @@
 package pl.sages.klasy;
 
+import java.util.Date;
+
 public class AnonymousClass {
 
     public static void main(String[] args) {
@@ -24,6 +26,7 @@ public class AnonymousClass {
             public void superDog(){
 
             }
+
         };
         // gdybym chciał wywołać metodę superDog to musiałbym przerzutować
         // klasę Dog na moją klasę anonimową, ale jak to zrobić
