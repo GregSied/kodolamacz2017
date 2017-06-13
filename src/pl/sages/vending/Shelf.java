@@ -29,5 +29,19 @@ public class Shelf {
         return product.getName();
     }
 
+    public Product removeOneItem(){
+        // zmniejszamy licznik produktów
+        this.itemCount--;
+        // zwracamy produkt, który na danej półce się znajduje
+        return this.product;
+    }
 
+    public int getItemCount() {
+        return itemCount;
+    }
+
+
+    public Product getProduct() {
+        return product;
+    }
 }

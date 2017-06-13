@@ -1,5 +1,6 @@
 package pl.sages.vending;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class VendingMachine {
@@ -7,7 +8,9 @@ public class VendingMachine {
     Shelf[] shelves = new Shelf[10];
 
     String display = "";
-    private CoinDispenser coinDispenser = new CoinDispenser();
+    private CoinDispenser coinDispenser =
+            new CoinDispenser(Arrays.asList(Coin.TWENTY_GROSZY,
+            Coin.ONE_ZLOTY, Coin.TWO_ZLOTY, Coin.TEN_GROSZY));
     private int lastPushedButton;
 
     public VendingMachine(Product[] products) {
@@ -45,14 +48,33 @@ public class VendingMachine {
     }
 
     private void refreshDisplay() {
-        this.display = "Produkt: "+shelves[lastPushedButton].getItemName()+
-                " Cena: " + shelves[lastPushedButton].getItemPrice() +
-                " Pozostało: " + (shelves[lastPushedButton].getItemPrice() - coinDispenser.getTotal());
+        Shelf shelf = shelves[lastPushedButton];
+        this.display = "Produkt: "+ shelf.getItemName()+
+                " Ilość: " + shelf.getItemCount() +
+                " Cena: " + shelf.getItemPrice() +
+                " Pozostało: " + (shelf.getItemPrice() - coinDispenser.getTotal());
     }
 
     public void insertCoin(Coin coin){
         coinDispenser.insert(coin);
+        Shelf shelf = shelves[lastPushedButton];
+        if(shelf.getItemPrice() <= coinDispenser.getTotal()){
+            if(coinDispenser.canReturnChange(coinDispenser.getTotal() - shelf.getItemPrice())){
+                System.out.println("Wydano produkt: "+shelf.removeOneItem());
+            }else{
+                System.out.println("Nie można wydać reszty");
+                cancel();
+            }
+        }
         refreshDisplay();
+    }
+
+    // zakładamy, że ta metoda jest wywołana tylko jeśli
+    // wrzucono odpowiednią kwotę do maszyny
+    private Product giveProduct(){
+        // można tak, ale to nie jest programowanie obiektowe:
+        // shelves[lastPushedButton].setItemCount(shelves[lastPushedButton].getItemCount()-1);
+        return shelves[lastPushedButton].getProduct();
     }
 
     public void cancel(){
@@ -68,9 +90,9 @@ public class VendingMachine {
         machine.pushButton(4);
         System.out.println(machine.getDisplay());
         System.out.println("Wrzucam 50 groszy");
-        machine.insertCoin(Coin.FIFTY_GROSZY);
+        machine.insertCoin(Coin.TWO_ZLOTY);
         System.out.println(machine.getDisplay());
-        machine.insertCoin(Coin.FIFTY_GROSZY);
+        machine.insertCoin(Coin.TWO_ZLOTY);
         System.out.println(machine.getDisplay());
         machine.cancel();
     }

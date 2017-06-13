@@ -19,5 +19,5 @@ public class Parzyste {
 
         policzParzyste(tab);
     }
-
+    
 }

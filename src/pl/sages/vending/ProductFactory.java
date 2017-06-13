@@ -25,9 +25,10 @@ public class ProductFactory {
         for (int i = 0; i < 10; i++) {
             // na kolejne miejsca w tablicy products wkładam
             // losowo wygenerowane produkty - nazwa jest losowana z tablicy
-            // i cena z zakresu 1-500
+            // i cena z zakresu 10-500 (w skokach co 10)
+            // 10, 20, 30 ... 490, 500
             products[i] = new Product(NAMES[random.nextInt(NAMES.length)],
-                    random.nextInt(500)+1);
+                    10*(random.nextInt(50)+1));
         }
         return products;
     }
