@@ -120,6 +120,7 @@ public class Employee {
         int c = stefan.count;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +131,10 @@ public class Employee {
         return name != null ? name.equals(employee.name) : employee.name == null;
     }
 
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
+    }
 }
 
 enum EmployeeType {
@@ -151,6 +156,21 @@ class MojString{
 
     public void wypisz(){
         System.out.println("Imię tego pracownika to " + text);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MojString mojString = (MojString) o;
+
+        return text != null ? text.equals(mojString.text) : mojString.text == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return text != null ? text.hashCode() : 0;
     }
 }
 

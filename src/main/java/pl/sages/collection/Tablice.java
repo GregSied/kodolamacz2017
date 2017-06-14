@@ -54,6 +54,8 @@ public class Tablice {
         // na końcu jak dużo tych elementów kopiujemy
         System.arraycopy(pomieszana, 0,
                 trzeciaTablica, 0, pomieszana.length);
+//        System.arraycopy(SKĄD, OD_KTÓREGO,
+//                DOKĄD, OD_KTÓREGO, ILE_ELEMENTÓW);
         trzeciaTablica[2] = -9999;
 
         System.out.println(Arrays.toString(trzeciaTablica));
