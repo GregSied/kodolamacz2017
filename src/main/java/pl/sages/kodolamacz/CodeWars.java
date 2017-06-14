@@ -159,6 +159,35 @@ public class CodeWars {
         return sb.toString();
     }
 
+    public static int zeros(int n) {
+        int sum = 0;
+        for (int i = 5; i < n; i++) {
+            sum += divBy(i, 5);
+        }
+        return sum;
+    }
+
+    public static int divBy(int n, int d){
+        int i = 0;
+        while(n % d == 0){
+            n = n / d;
+            i++;
+        }
+        return i;
+    }
+
+
+    public static String makeReadable(int seconds) {
+        int h = seconds / 3600;
+        int m = (seconds - h*3600) / 60;
+        int s = seconds % 60;
+        return format(h)+":"+format(m)+":"+format(s);
+    }
+
+    public static String format(int x){
+        return x < 10 ? "0" + x : ""+x;
+    }
+
     public static void main(String[] args) {
         System.out.println(encode("Prespecialized"));
         System.out.println(print(3));

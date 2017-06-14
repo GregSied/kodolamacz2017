@@ -117,6 +117,7 @@ public class Employee {
 
         Employee stefan = new Employee("Stefan", "Boss", 40, EmployeeType.CEO);
         System.out.println(Employee.count);
+        int c = stefan.count;
     }
 
     @Override
